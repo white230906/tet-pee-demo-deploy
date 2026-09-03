@@ -54,4 +54,56 @@ public class Service: IService
         var fileExtension = Path.GetExtension(file.FileName).ToLower();
         return allowsExtensions.Contains(fileExtension);
     }
+    /*
+       public async Task<string> UploadImageAsync(
+      IFormFile file,
+      Guid outputId)
+  {
+      if (file == null || file.Length == 0)
+          throw new ArgumentException("File is empty or null", nameof(file));
+
+      if (!IsImageFile(file))
+          throw new ArgumentException("File is not an image", nameof(file));
+
+      await using var stream = file.OpenReadStream();
+
+      var publicId = $"generated-flowers/{outputId:N}";
+
+      var uploadParams = new ImageUploadParams
+      {
+          File = new FileDescription(file.FileName, stream),
+          PublicId = publicId,
+          Type = "authenticated",
+          Format = "png"
+      };
+
+      var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+
+      return uploadResult.SecureUrl.ToString();
+  }
+  
+  
+  //
+  public string CreateImageDownloadUrl(
+      Guid outputId,
+      string fileName)
+  {
+      var publicId = $"generated-flowers/{outputId:N}";
+
+      var expiresAt = DateTimeOffset.UtcNow
+          .AddMinutes(5)
+          .ToUnixTimeSeconds();
+
+      return _cloudinary.DownloadPrivate(
+          publicId: publicId,
+          attachment: true,
+          format: "png",
+          type: "authenticated",
+          expiresAt: expiresAt,
+          resourceType: "image",
+          targetFilename: fileName);
+  }
+     */
+    
+    
 }
