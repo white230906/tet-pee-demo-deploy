@@ -472,3 +472,6 @@ $RECYCLE.BIN/
 
 TetPee.Api/appsettings.json
 TetPee.Api/appsettings.Development.json
+
+#docker
+.docker/.env
